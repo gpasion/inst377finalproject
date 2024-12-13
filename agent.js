@@ -1,42 +1,58 @@
-// Function to extract query parameters from the URL
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);  // Get the value of the given parameter (e.g., 'id')
-}
+const urlParams = new URLSearchParams(window.location.search);
+const agentId = urlParams.get('id');
 
-async function fetchAgentDetails() {
-    // Get the agent ID from the URL
-    const agentId = getQueryParam('id');
-    const detailsContainer = document.getElementById('agent-details');
-    
-    if (!agentId) {
-        detailsContainer.innerHTML = '<div class="error">Agent ID is missing in the URL.</div>';
-        return;
-    }
-
+async function fetchAgentDetails(agentId) {
+    const container = document.getElementById('agent-container');
     try {
-        // Fetch the agent data using the unique ID
         const response = await fetch(`https://valorant-api.com/v1/agents/${agentId}`);
         const data = await response.json();
-        
-        // If no agent data is returned
-        if (!data.data) {
-            detailsContainer.innerHTML = '<div class="error">Agent not found.</div>';
+        const agent = data.data;
+
+        if (!agent) {
+            container.innerHTML = '<div class="error">Agent not found.</div>';
             return;
         }
 
-        // Extract relevant details about the agent
-        const { displayName, description, fullPortrait } = data.data;
-        detailsContainer.innerHTML = `
-            <img src="${fullPortrait}" alt="${displayName}">
-            <h2>${displayName}</h2>
-            <p>${description || 'No description available.'}</p>
-        `;
+        const { displayName, fullPortrait, abilities } = agent;
+
+        // Show agent details
+        container.innerHTML = `
+                    <img src="${fullPortrait || ''}" alt="${displayName}">
+                    <h2>${displayName}</h2>
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            ${createAbilitySlides(abilities)}
+                        </div>
+                    </div>
+                `;
+
+        // Initialize Swiper
+        new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 10,
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+            },
+            freeMode: true,
+        });
+
     } catch (error) {
         console.error('Error fetching agent details:', error);
-        detailsContainer.innerHTML = '<div class="error">Failed to load agent details. Please try again later.</div>';
+        container.innerHTML = '<div class="error">Failed to load agent details. Please try again later.</div>';
     }
 }
 
-// Call the function to fetch agent details
-fetchAgentDetails();
+function createAbilitySlides(abilities) {
+    return abilities.map(ability => {
+        return `
+                    <div class="swiper-slide">
+                        <img src="${ability.displayIcon || ''}" alt="${ability.displayName || 'Unknown Ability'}">
+                        <h3>${ability.displayName || 'Unknown Ability'}</h3>
+                        <p>${ability.description || 'No description available.'}</p>
+                    </div>
+                `;
+    }).join('');
+}
+
+fetchAgentDetails(agentId);

@@ -1,131 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valorant Home</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            background-color: #202020;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-        }
-        nav {
-            text-align: center;
-            margin-top: 1em;
-        }
-        nav a {
-            margin: 0 1em;
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.2em; /* Increased text size */
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
-        nav a:hover {
-            border-color: #ff4655;
-        }
-        section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 3em 2em;
-            min-height: 200px;
-        }
-        .section-1 {
-            background-color: #ff4655;
-            color: #fff;
-        }
-        .section-2 {
-            background-color: #fff;
-            color: #1f1f1f;
-        }
-        .section-2 .text-container {
-            flex: 1;
-            padding: 0 2em;
-        }
-        .section-2 .text-container h2 {
-            font-size: 2em; /* Match header size with other sections */
-            margin-bottom: 1em;
-        }
-        .section-2 .text-container p {
-            font-size: 1.4em; /* Match paragraph size with other sections */
-        }
-        .section-2 ul {
-            font-size: 1.4em; /* Increase list item text size to match other sections */
-        }
-        .section-2 ul li {
-            margin-bottom: 0.5em;
-        }
-        .section-3 {
-            background-color: #1f1f1f;
-            color: #fff;
-        }
-        .text-container {
-            flex: 1;
-            padding: 0 2em;
-        }
-        .text-container h2 {
-            font-size: 2em; /* Larger header text */
-            margin-bottom: 1em;
-        }
-        .text-container p {
-            font-size: 1.4em; /* Larger paragraph text */
-        }
-        .image-container {
-            flex: 1;
-            text-align: center;
-        }
-        .button {
-            display: inline-block;
-            margin-top: 1em;
-            padding: 1em 2em;
-            background-color: #fff;
-            color: #ff4655;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 1.2em;
-            border: 2px solid black;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .button:hover {
-            background-color: #000;
-            color: #fff;
-        }
-        img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 8px;
-        }
-    </style>
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
 </head>
-<body>
+
+<body onload="scrollToTop()">
     <header>
         <h1>Welcome to Valorant</h1>
         <nav>
             <a href="home.html">Home</a>
-            <a href="about.html">About</a>
             <a href="functions.html">Agents</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
 
-    <section class="section-1">
+    <section class="section-1" data-sr>
         <div class="text-container">
             <h2>Play Valorant</h2>
-            <p>Valorant is a free-to-play 5v5 tactical shooter game developed by Riot Games. Whether you're a seasoned FPS player or a newcomer, Valorant provides thrilling and competitive gameplay.</p>
+            <p>Valorant is a free-to-play 5v5 tactical shooter game developed by Riot Games. Whether you're a seasoned
+                FPS player or a newcomer, Valorant provides thrilling and competitive gameplay.</p>
         </div>
         <div class="image-container">
             <a href="https://playvalorant.com" class="button" target="_blank">Download and Play Valorant</a>
         </div>
     </section>
 
-    <section class="section-2">
+    <section class="section-2" data-sr>
         <div class="image-container">
             <img src="image1.jpg" alt="Game Highlights">
         </div>
@@ -140,14 +44,32 @@
         </div>
     </section>
 
-    <section class="section-3">
+    <section class="section-3" data-sr>
         <div class="text-container">
             <h2>Why Valorant?</h2>
-            <p>Valorant combines precision shooting with strategic team-based gameplay. Each agent’s unique abilities allow players to create their own playstyle and adapt to their team’s needs.</p>
+            <p>Valorant combines precision shooting with strategic team-based gameplay. Each agent’s unique abilities
+                allow players to create their own playstyle and adapt to their team’s needs.</p>
         </div>
         <div class="image-container">
             <img src="image2.png" alt="Why Valorant">
         </div>
     </section>
+
+    <script src="https://unpkg.com/scrollreveal@4/dist/scrollreveal.min.js"></script>
+    <script>
+        // ScrollReveal setup
+        const sr = ScrollReveal({
+            viewFactor: 0.5 // triggers reveal when 50% of the section is in view
+        });
+
+        sr.reveal('.section-1', { origin: 'bottom', distance: '1000px', duration: 1000 });
+        sr.reveal('.section-2', { origin: 'bottom', distance: '1000px', duration: 1000 });
+        sr.reveal('.section-3', { origin: 'bottom', distance: '1000px', duration: 1000 });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
+
 </html>

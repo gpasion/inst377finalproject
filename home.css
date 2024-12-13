@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #202020;
+    padding: 1em;
+    text-align: center;
+}
+
+header h1 {
+    color: #ff4655;
+}
+
+nav {
+    text-align: center;
+    margin-top: 1em;
+}
+
+nav a {
+    margin: 0 1em;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    /* Increased text size */
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+nav a:hover {
+    border-color: #ff4655;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3em 2em;
+    min-height: 500px;
+}
+
+.section-1 {
+    background-color: #ff4655;
+    color: #fff;
+}
+
+.section-2 {
+    background-color: #fff;
+    color: #1f1f1f;
+}
+
+.section-2 .text-container {
+    flex: 1;
+    padding: 0 2em;
+}
+
+.section-2 .text-container h2 {
+    font-size: 2em;
+    /* Match header size with other sections */
+    margin-bottom: 1em;
+}
+
+.section-2 .text-container p {
+    font-size: 1.4em;
+    /* Match paragraph size with other sections */
+}
+
+.section-2 ul {
+    font-size: 1.4em;
+    /* Increase list item text size to match other sections */
+}
+
+.section-2 ul li {
+    margin-bottom: 0.5em;
+}
+
+.section-3 {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+.text-container {
+    flex: 1;
+    padding: 0 2em;
+}
+
+.text-container h2 {
+    font-size: 2em;
+    /* Larger header text */
+    margin-bottom: 1em;
+}
+
+.text-container p {
+    font-size: 1.4em;
+    /* Larger paragraph text */
+}
+
+.image-container {
+    flex: 1;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 1em 2em;
+    background-color: #fff;
+    color: #ff4655;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    border: 2px solid black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+}
