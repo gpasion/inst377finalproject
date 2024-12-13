@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #202020;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+        nav a {
+            margin: 0 1em;
+            text-decoration: none;
+            color: #fff;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 3em 2em;
+            min-height: 200px;
+        }
+        .section-1 {
+            background-color: #ff4655;
+            color: #fff;
+        }
+        .section-2 {
+            background-color: #fff;
+            color: #1f1f1f;
+        }
+        .section-3 {
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+        .text-container {
+            flex: 1;
+            padding: 0 2em;
+        }
+        .text-container h2 {
+            margin-bottom: 1em;
+        }
+        .image-container {
+            flex: 1;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 1em 2em;
+            background-color: #fff;
+            color: #ff4655;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            border: 2px solid black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Valorant</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <section class="section-1">
+        <div class="text-container">
+            <h2>Play Valorant</h2>
+            <p>Valorant is a free-to-play 5v5 tactical shooter game developed by Riot Games. Whether you're a seasoned FPS player or a newcomer, Valorant provides thrilling and competitive gameplay.</p>
+        </div>
+        <div class="image-container">
+            <a href="https://playvalorant.com" class="button" target="_blank">Download and Play Valorant</a>
+        </div>
+    </section>
+
+    <section class="section-2">
+        <div class="image-container">
+            <img src="image1.jpg" alt="Game Highlights">
+        </div>
+        <div class="text-container">
+            <h2>Game Highlights</h2>
+            <ul>
+                <li>Unique Agents with distinct abilities</li>
+                <li>Strategic gameplay that rewards skill and teamwork</li>
+                <li>Competitive ranking system</li>
+                <li>Regular updates and events</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section-3">
+        <div class="text-container">
+            <h2>Why Valorant?</h2>
+            <p>Valorant combines precision shooting with strategic team-based gameplay. Each agent’s unique abilities allow players to create their own playstyle and adapt to their team’s needs.</p>
+        </div>
+        <div class="image-container">
+            <img src="image2.png" alt="Why Valorant">
+        </div>
+    </section>
+</body>
+</html>
