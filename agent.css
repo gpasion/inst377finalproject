@@ -34,6 +34,25 @@ header {
     color: #666;
 }
 
+/*nav bar styling*/
+
+nav {
+    text-align: center;
+    background-color: #333;
+    height: 30px;
+}
+nav a {
+    margin: 30px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+nav a:hover {
+    border-color: #ff4655;
+}
+
 /*carousel styling*/
 
 .swiper-container {
