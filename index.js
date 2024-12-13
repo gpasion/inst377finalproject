@@ -11,6 +11,10 @@ supabaseAPIKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1qZW50b2pwYXllZ2J3eWp6Z3poIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQxMTU2OTQsImV4cCI6MjA0OTY5MTY5NH0.LAG5W472lWAR6TAyvJTUcGdsnvOwQ1FCBWOoCkmTrBQ";
 const supabase = SupabaseClient.createClient(supabaseUrl, supabaseAPIKey);
 
+app.get("/", (req, res) => {
+  res.sendFile("public/workshop.html", { root: __dirname });
+});
+
 app.get("/agents", async (req, res) => {
   console.log("Getting all agents");
 
